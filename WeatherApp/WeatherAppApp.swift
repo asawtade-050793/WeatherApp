@@ -1,10 +1,3 @@
-//
-//  WeatherAppApp.swift
-//  WeatherApp
-//
-//  Created by Akshay Awtade on 23/05/26.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -13,11 +6,12 @@ struct WeatherAppApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
+            WeatherRecord.self,
+            User.self
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        let config = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
+            return try ModelContainer(for: schema, configurations: [config])
         } catch {
             fatalError("Could not create ModelContainer: \(error)")
         }
