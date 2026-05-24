@@ -8,12 +8,6 @@ func formatTemp(_ kelvin: Double) -> String {
     String(format: "%.1f", kelvinToCelsius(kelvin))
 }
 
-func windDirection(degrees: Int) -> String {
-    let dirs = ["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"]
-    let index = Int((Double(degrees) / 22.5) + 0.5) % 16
-    return dirs[index]
-}
-
 func isRainy(code: Int) -> Bool {
     (200...232).contains(code) || (300...321).contains(code) || (500...531).contains(code)
 }
@@ -52,9 +46,4 @@ func formatCoordinate(lat: Double, lon: Double) -> String {
     let latDir = lat >= 0 ? "N" : "S"
     let lonDir = lon >= 0 ? "E" : "W"
     return String(format: "%.2f° %@, %.2f° %@", abs(lat), latDir, abs(lon), lonDir)
-}
-
-func utcOffsetString(timezone: Int) -> String {
-    let hours = timezone / 3600
-    return hours >= 0 ? "UTC+\(hours)" : "UTC\(hours)"
 }

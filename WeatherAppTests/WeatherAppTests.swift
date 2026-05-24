@@ -18,14 +18,6 @@ final class WeatherHelpersTests: XCTestCase {
         XCTAssertEqual(formatTemp(373.15), "100.0")
     }
 
-    func testWindDirection() {
-        XCTAssertEqual(windDirection(degrees: 0),   "N")
-        XCTAssertEqual(windDirection(degrees: 90),  "E")
-        XCTAssertEqual(windDirection(degrees: 180), "S")
-        XCTAssertEqual(windDirection(degrees: 270), "W")
-        XCTAssertEqual(windDirection(degrees: 360), "N")
-    }
-
     func testIsRainy() {
         XCTAssertTrue(isRainy(code: 200))   // thunderstorm
         XCTAssertTrue(isRainy(code: 300))   // drizzle
@@ -49,11 +41,6 @@ final class WeatherHelpersTests: XCTestCase {
         XCTAssertEqual(formatCoordinate(lat: 0, lon: -74.01), "0.00° N, 74.01° W")
     }
 
-    func testUtcOffsetString() {
-        XCTAssertEqual(utcOffsetString(timezone: 7200),   "UTC+2")
-        XCTAssertEqual(utcOffsetString(timezone: -18000), "UTC-5")
-        XCTAssertEqual(utcOffsetString(timezone: 0),      "UTC+0")
-    }
 }
 
 // MARK: - AuthHelpers
